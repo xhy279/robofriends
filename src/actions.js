@@ -15,7 +15,7 @@ export const setSearchField = (text) => ({
 export const requestRobots = () => (dispatch) => {
   dispatch({ type: REQUEST_ROBOTS_PENDING });
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-  fetch('http://jsonplaceholder.typicode.com/users')
+  fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => dispatch({type: REQUEST_ROBOTS_SUCCESS, payload: data}))
     .catch(error => dispatch({type: REQUEST_ROBOTS_FAILED, payload: error}))
