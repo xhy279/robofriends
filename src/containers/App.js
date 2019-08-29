@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundry from '../components/ErrorBoundry';
-import './App.css';
 import { setSearchField, requestRobots} from '../actions';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
 
-console.log(process.env.NODE_ENV);
+import MainPage from '../components/MainPage';
+
+import './App.css';
+
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchRobots.searchField,
@@ -28,28 +25,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class App extends Component {
-  componentDidMount() {
-    const { onRequestRobots } = this.props;
-    onRequestRobots();
-  }
 
   render() {
-    const { onSearchChange, searchField, robots, isPending } = this.props;
-    const filteredRobots = robots.filter( robot => 
-      robot.name.toLowerCase().includes(searchField.toLowerCase()));
-    return isPending ? 
-      (<h1>Loading</h1>) :
-      (
-        <div className='tc'>
-          <Header></Header>
-          <SearchBox searchChange={onSearchChange} />
-          <Scroll>
-            <ErrorBoundry>
-              <CardList robots={filteredRobots} />
-            </ErrorBoundry>
-          </Scroll>
-        </div>
-      );
+    // this.props refers to the props that get from mapStateToProps and mapDispatchToProps
+    return <MainPage { ...this.props }/>; 
   }
 };
 

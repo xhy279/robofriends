@@ -6,6 +6,7 @@ const CardList = ({ robots }) => {
   // if (1) {
   //   throw new Error('dd');
   // }
+  console.log(robots);
   return ( 
     <div>
       { robots.map((i) => {
