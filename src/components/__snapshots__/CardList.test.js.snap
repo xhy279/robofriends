@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to match snapshot 1`] = `
+<div>
+  <Card
+    email="a@a.com"
+    id={1}
+    key="1"
+    name="a"
+  />
+</div>
+`;
